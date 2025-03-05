@@ -78,10 +78,11 @@ function oneSession($inpath)
 */
 function summaryAnalysis($modelID)
 {
-    global $optStats, $optClash, $optCbeta, $optRota, $optRama, $optOmega, $optCablam, $optGeom, $optUndowser, $optPuck, $optSuite;
+    global $optStats, $optClash, $optCbeta, $optRota, $optRama, $optOmega, $optCablam, $optGeom, $optUndowser, $optPuck, $optSuite, $optNuclH;
     $out = "";
 
     $model =& $_SESSION['models'][$modelID];
+    if ($optNuclH) $_SESSION['reduce_blength'] = "nuclear";
     $reduce_blength = $_SESSION['reduce_blength'];
     //$bcutval = 40; TO-DO - make these user controllable
     //$ocutval = 10;
@@ -299,6 +300,7 @@ These flags activate selected validations:
   -dorna       turns on all the above rna-specific validations
 
 Other options:
+  -nuclear     use nuclear H parameters (forced).
   -h, -help    prints this help text
   -q           'quiet' mode, suppresses printing of column headers
 
@@ -321,6 +323,7 @@ $optOmega   = true;
 $optCablam  = true;
 $optPuck    = false;
 $optSuite   = false;
+$optNuclH   = false;
 
 // First argument is the name of this script...
 if(is_array($_SERVER['argv'])) foreach(array_slice($_SERVER['argv'], 1) as $arg)
@@ -351,6 +354,7 @@ if(is_array($_SERVER['argv'])) foreach(array_slice($_SERVER['argv'], 1) as $arg)
       $optPuck = true;
       $optSuite = true;
     }
+    elseif($arg == '-nuclear') $optNuclH = true;
     elseif($arg == '-h' or $arg == '-help')                      die($helptext);
     elseif(!isset($inDir))      $inDir = $arg;
     else          die($helptext."Too many or unrecognized arguments: '$arg'\n");
