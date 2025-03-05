@@ -1,4 +1,4 @@
-#!/usr/bin/env php
+#!/opt/php/5.6/bin/php
 <?php # (jEdit options) :folding=explicit:collapseFolds=1:
 /*****************************************************************************
 INPUTS / SWITCHES (via $_SERVER['argv']):

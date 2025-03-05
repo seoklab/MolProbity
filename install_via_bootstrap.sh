@@ -43,7 +43,7 @@ cd ../..
 
 wget -O bootstrap.py https://github.com/cctbx/cctbx_project/raw/master/libtbx/auto_build/bootstrap.py
 
-python bootstrap.py --builder=molprobity --use-conda $nproc
+python bootstrap.py --builder=molprobity --use-conda /opt/conda/envs/molprobity $nproc
 
 echo ++++++++++ MolProbity configure.sh finished.
 echo ++++++++++ Run molprobity/setup.sh to complete installation.
