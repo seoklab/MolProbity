@@ -145,7 +145,7 @@ function mpStartSession($createIfNeeded = false)
 
     // Check to make sure we have a working directory for this user.
     //$dataDir = MP_BASE_DIR."/public_html/data/".session_id();
-    $dataDir = MP_JOB_DATA_DIR.session_id();
+    $dataDir = MP_JOB_DATA_DIR."molprobity-".session_id();
     if(!file_exists($dataDir))
     {
         if($createIfNeeded)
@@ -299,10 +299,10 @@ function mpSessDestroy($id)
 {
     mpCheckSessionID($id); // just in case something nasty is in there
     //$dataDir    = MP_BASE_DIR."/public_html/data/$id";
-    $dataDir = MP_JOB_DATA_DIR.$id;
+    //$dataDir = MP_JOB_DATA_DIR.$id;
 
     // This actually seems to be most robust and portable... unlink() is very awkward
-    `rm -rf '$dataDir'`;
+    //`rm -rf '$dataDir'`;
     return true;
 }
 
