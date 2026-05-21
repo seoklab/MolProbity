@@ -1,0 +1,14 @@
+name: molprobity
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10.8
+
+  - boost=1.85.0
+  - future=1.0.0
+  - hdf5=1.14.0
+  - mrcfile=1.5.4
+  - numpy=2.2.3
+  - php=7.3.33
+  - scons=4.8.1
+  - six=1.17.0

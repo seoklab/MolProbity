@@ -38,7 +38,7 @@ an older version of PHP (PHP5.6) as the default PHP interpreter.
 
 MolProbity installation is accomplished with a downloadable script which
 fetches required sources and data into a specifically created empty directory
-as opposed to cloning this repository. 
+as opposed to cloning this repository.
 
 We describe our installation recipe in three parts:
 1. System preparation (mostly installing php 5.6)
@@ -46,6 +46,10 @@ We describe our installation recipe in three parts:
 an empty directory created specifically for the installation
 3. Providing system and local webservices. These notes are mostly specific
 to Linux Ubuntu/Debian systems but can be adapted to other platforms.
+
+### Notes for Seoklab:
+Run `conda activate /opt/conda/envs/molprobity` first. Or create your own
+conda environemnt with `environments.yml`.
 
 <a name="prepare"></a>
 ## 1. System Preparation:
@@ -78,7 +82,7 @@ apt-get install php5.6-gd php5.6-mysql php5.6-imap php5.6-curl
 php5.6-intl php5.6-pspell php5.6-recode php5.6-sqlite3 php5.6-tidy
 php5.6-xmlrpc php5.6-xsl php5.6-zip php5.6-mbstring php5.6-soap
 php5.6-opcache libicu65 php5.6-common php5.6-json php5.6-readline
-php5.6-xml libapache2-mod-php5.6 php5.6-cli 
+php5.6-xml libapache2-mod-php5.6 php5.6-cli
 ```
 <a name="phpcheck"></a>
 ### c. PHP Version Check:
@@ -109,7 +113,7 @@ installation script into an empty MolProbity directory specifically
 created for the installation.
 
 <a name="acquiremolprobity"></a>
-### a. Acquiring MolProbity 
+### a. Acquiring MolProbity
 
 First create the empty MolProbity directory (the directory that this
 README file will be in) to a location where you want it to reside.
@@ -126,7 +130,7 @@ Make sure that this script is at the top level of the directory where
 MolProbity is to be installed.
 
 <a name="runbootstrap"></a>
-### b. Run install_via_bootstrap.sh. 
+### b. Run install_via_bootstrap.sh.
 ```
 ./install_via_bootstrap.sh
 ```
@@ -139,23 +143,23 @@ This will install cctbx_project and the following needed buildlist components
 in MolProbity/modules:
 
 > annlib
-> 
+>
 > annlib_adaptbx
-> 
+>
 > cbflib
-> 
+>
 > ccp4io
-> 
+>
 > ccp4io_adaptbx
-> 
+>
 > cctbx_project
-> 
+>
 > chem_data
-> 
+>
 > probe
-> 
+>
 > reduce
-> 
+>
 > tntbx
 
 and then will compile and configure in MolProbity/build.
@@ -192,19 +196,19 @@ its process is killed.
 
 In a browser, navigate to:
 
-http://localhost:8000/public_html/index.php 
+http://localhost:8000/public_html/index.php
 
 you will have a functioning local MolProbity site. After finishing your
 MolProbity work and closing the browser, you can shut down the local userspace
 webservice by using a Ctl-C command to kill the process in the terminal
-where the command was invoked. 
+where the command was invoked.
 
 <a name="phpconfig"></a>
 
 ### b. Webserver/PHP configuration
 
 Finally it is very important to tweak webserver and PHP settings
-for proper operation. 
+for proper operation.
 
 We have provided two files in public_html/, .user.ini and .htaccess,
 which attempt to preclude the need for users to do system-wide server
